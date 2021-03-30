@@ -1,7 +1,11 @@
 div {padding: 10px;}
 
-.travian_test {
+.title {
     background-color: burlywood;
+}
+
+.travian_test {
+    background-color: rgb(167, 222, 135);
 }
 
 .white_space {
