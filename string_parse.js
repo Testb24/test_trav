@@ -6,12 +6,12 @@ function post_attack() {
   const attack_field = document.getElementById("attack_field");
   // console.log(attack_field);
 
-  var result_from_parse = Parse_PR(attack_field.value);
+  // var result_from_parse = Parse_PR(attack_field.value);
   // console.log(result_from_parse);
-  var test = change_format_attaque(result_from_parse);
+  // var test = change_format_attaque(result_from_parse);
   // console.log("result")
   // console.log(test);
-
+  var test = change_format_attaque(Parse_PR(attack_field.value));
 
   const results = document.getElementById("results");
   let results_child = document.createElement("TABLE");
