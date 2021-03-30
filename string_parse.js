@@ -4,13 +4,13 @@ btn_validate_trav.addEventListener("click", post_attack);
 
 function post_attack() {
   const attack_field = document.getElementById("attack_field");
-  console.log(attack_field);
+  // console.log(attack_field);
 
   var result_from_parse = Parse_PR(attack_field.value);
-  console.log(result_from_parse);
+  // console.log(result_from_parse);
   var test = change_format_attaque(result_from_parse);
-  console.log("result")
-  console.log(test);
+  // console.log("result")
+  // console.log(test);
 
 
   const results = document.getElementById("results");
@@ -24,7 +24,7 @@ function post_attack() {
     '<th>Time_impact</th>' +
     '<th>Waves</th>' +
     '</tr>';
-console.log("aaa : " + test.length);
+// console.log("aaa : " + test.length);
   for (let i = 0; i < test.length; i++) {
     results_child.innerHTML +=
       '<tr>' +
@@ -36,8 +36,8 @@ console.log("aaa : " + test.length);
       '</tr>';
   }
   results_child.innerHTML += '</table>';
-  console.log(results_child);
-  console.log(results);
+  // console.log(results_child);
+  // console.log(results);
   results.appendChild(results_child);
 
 }
@@ -45,7 +45,7 @@ console.log("aaa : " + test.length);
 function Parse_PR(pr) {
 
   var pr = pr.replace(/\u2212/g, "-").replace(/\r|\n/g, ' ').replace(/[^\x20-\xFF]+/g, '').replace(/\s\s+/g, ' ');
-  console.log(pr);
+  // console.log(pr);
   if (pr == "") { return "pr vide en entrée" };
   //=============  TEMP SERVEUR  ========================
   var temp = pr.match(/Heure du serveur: (\d{1,2}):(\d{2}):(\d{2})/);
@@ -89,9 +89,9 @@ function Parse_PR(pr) {
       var re3 = new RegExp('Villages: \\d{1,2}\\/\\d{1,2}.' + Nom_Village + ' {1,10}\\((-*\\d{1,3})\\|(-*\\d{1,3})\\)')
       var tempre = pr.match(re3)
     }
-    console.log(tempre)
-    console.log(tempre[1])
-    console.log(tempre[2])
+    // console.log(tempre)
+    // console.log(tempre[1])
+    // console.log(tempre[2])
     var Vdef_X = parseInt(tempre[1].replace(" ", ''), 10)
     var Vdef_Y = parseInt(tempre[2].replace(" ", ''), 10)
 
@@ -138,7 +138,7 @@ function Parse_PR(pr) {
 }
 
 function change_format_attaque(format_1) {
-  console.log(format_1);
+  // console.log(format_1);
   var format_2 = [];      // la nouvelle liste des attaques en format x-x-x-x
 
 
@@ -179,5 +179,6 @@ function change_format_attaque(format_1) {
     }
   }
 
+  console.log(format_2);
   return (format_2)
 }

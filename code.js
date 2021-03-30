@@ -21,7 +21,7 @@ async function postData(url = '', data = {}) {
 const btn = document.getElementById("btn_validate");
 const field1_content = document.getElementById("field1");
 
-console.log(field1_content.value);
+// console.log(field1_content.value);
 
 btn.addEventListener("click", envoie);
 
@@ -30,7 +30,7 @@ function envoie(field1_content) {
 const field1_content2 = document.getElementById("field1");
     // let url, data;
     // postData(url, data);
-    console.log(field1_content2)
+    // console.log(field1_content2)
     let data = {
       message: field1_content2.value,
       message2: field1_content2.value
