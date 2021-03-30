@@ -37,7 +37,7 @@ function envoie() {
   // console.log(data[0]);
   data.forEach(element => {
     let attaque = element;
-    console.log(element);
+    // console.log(element);
 
     postData('http://localhost:3000/api/stuff', element )
       .then(data => {
