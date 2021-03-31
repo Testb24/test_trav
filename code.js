@@ -38,11 +38,32 @@ function envoie() {
   data.forEach(element => {
     let attaque = element;
     // console.log(element);
+    let url_api;
+    url_api ="https://test-trav.herokuapp.com/api/stuff";
+    // url_api = "http://localhost:3000/api/stuff";
 
-    postData('http://localhost:3000/api/stuff', element )
+    postData(url_api, element )
       .then(data => {
         console.log(data); // JSON data parsed by `data.json()` call
       });
   });
 
+}
+
+
+// const btn = document.getElementById("btn_validate");
+// const field1_content = document.getElementById("field1");
+const test_co_return = document.getElementById("test_co_return");
+
+// btn.addEventListener("click", test_co);
+
+function test_co(){
+  let data_test = {
+
+  }
+  postData('http://localhost:3000/api/stuff', data_test )
+  .then(data => {
+    console.log(data); // JSON data parsed by `data.json()` call
+  });
+  
 }
