@@ -19,3 +19,7 @@ table, td, th {
     border: 1px black solid;
     border-collapse: collapse;
 }
+
+.server_test {
+    background-color: cadetblue;
+}
