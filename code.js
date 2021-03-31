@@ -23,11 +23,15 @@ const field1_content = document.getElementById("field1");
 
 // console.log(field1_content.value);
 
-btn.addEventListener("click", envoie);
+btn.addEventListener("click", transmit_88);
 
-function envoie() {
+function transmit_88() {
+  envoie("field1");
+}
 
-  const attack_field = document.getElementById("field1");
+function envoie(field) {
+
+  const attack_field = document.getElementById(field);
   // let url, data;
   // postData(url, data);
   // console.log(field1_content2)

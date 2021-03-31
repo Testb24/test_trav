@@ -3,41 +3,27 @@ const btn_validate_trav = document.getElementById("btn_validate_trav");
 btn_validate_trav.addEventListener("click", post_attack);
 
 function post_attack() {
-  const attack_field = document.getElementById("attack_field");
-  // console.log(attack_field);
 
-  // var result_from_parse = Parse_PR(attack_field.value);
-  // console.log(result_from_parse);
-  // var test = change_format_attaque(result_from_parse);
-  // console.log("result")
-  // console.log(test);
+
+  envoie("attack_field");
+
+  const attack_field = document.getElementById("attack_field");
+
   var test = change_format_attaque(Parse_PR(attack_field.value));
 
   const results = document.getElementById("results");
-  let results_child = document.createElement("TABLE");
-  results_child.innerHTML =
-    '<table>' +
-    '<tr>' +
-    '<th>Vdef</th>' +
-    '<th>Voff</th>' +
-    '<th>Time_save</th>' +
-    '<th>Time_impact</th>' +
-    '<th>Waves</th>' +
-    '</tr>';
-// console.log("aaa : " + test.length);
+  let results_child = document.createElement("TR");
+
+  // console.log("aaa : " + test.length);
   for (let i = 0; i < test.length; i++) {
     results_child.innerHTML +=
-      '<tr>' +
-      '<td>'+test[i].Vdef_X+'/'+test[i].Vdef_Y+'</td>' +
-      '<td>'+test[i].Voff_X+'/'+test[i].Voff_Y+'</td>' +
-      '<td>'+test[i].time_server +'</td>' +
-      '<td>'+test[i].time_impact+'</td>' +
-      '<td>'+test[i].vague+'</td>' +
-      '</tr>';
+      '<td>' + test[i].Vdef_X + '/' + test[i].Vdef_Y + '</td>' +
+      '<td>' + test[i].Voff_X + '/' + test[i].Voff_Y + '</td>' +
+      '<td>' + test[i].time_server + '</td>' +
+      '<td>' + test[i].time_impact + '</td>' +
+      '<td>' + test[i].vague + '</td>';
   }
-  results_child.innerHTML += '</table>';
-  // console.log(results_child);
-  // console.log(results);
+
   results.appendChild(results_child);
 
 }
