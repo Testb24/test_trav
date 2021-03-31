@@ -20,11 +20,6 @@ table, td, th {
     border-collapse: collapse;
 }
 
-td, th {
-    max-width: 15%;
-    width: 15%;
-}
-
 .server_test {
     background-color: cadetblue;
 }
