@@ -72,14 +72,17 @@ function Parse_PR(pr) {
 
     if (tempre == null) {
 
-      var re3 = new RegExp('Villages: \\d{1,2}\\/\\d{1,2}.' + Nom_Village + ' {1,10}\\((-*\\d{1,3})\\|(-*\\d{1,3})\\)')
+      var re3 = new RegExp('(Villages)|(VILLAGES): \\d{1,2}\\/\\d{1,2}.' + Nom_Village + ' {1,10}\\((-*\\d{1,3})\\|(-*\\d{1,3})\\)');
+      console.log(re3)
+      console.log(pr)
       var tempre = pr.match(re3)
     }
     // console.log(tempre)
     // console.log(tempre[1])
     // console.log(tempre[2])
-    var Vdef_X = parseInt(tempre[1].replace(" ", ''), 10)
-    var Vdef_Y = parseInt(tempre[2].replace(" ", ''), 10)
+    console.log(tempre)
+    var Vdef_X = parseInt(tempre[1+2].replace(" ", ''), 10)
+    var Vdef_Y = parseInt(tempre[2+2].replace(" ", ''), 10)
 
     var attaque = {
       Vdef_X: Vdef_X,
