@@ -11,7 +11,7 @@ function post_attack() {
 
   var test = change_format_attaque(Parse_PR(attack_field.value));
 
-  // const results = document.getElementById("results");
+  const results = document.getElementById("results");
   let results_child = document.createElement("TR");
 
   // console.log("aaa : " + test.length);
@@ -29,40 +29,31 @@ function post_attack() {
 }
 
 function Parse_PR(pr) {
-  if (pr == "") { console.log("pr vide en entrée") } else { console.log("pr non vide") };
-  var pr = pr.replace(/\u2212/g, "-").replace(/\r|\n/g, ' ').replace(/[^\x20-\xFF]+/g, ' ').replace(/\s\s+/g, ' ');
-  // console.log(pr);
-  if (pr == "") { console.log("pr vide en entrée après nettoyage") } else { console.log("pr clean") };
+
+  var pr = pr.replace(/\u2212/g, "-").replace(/\r|\n/g, ' ').replace(/[^\x20-\xFF]+/g, '').replace(/\s\s+/g, ' ');
+  console.log(pr);
+  if (pr == "") { return "pr vide en entrée" };
   //=============  TEMP SERVEUR  ========================
   var temp = pr.match(/Heure du serveur: (\d{1,2}):(\d{2}):(\d{2})/);
-  if (temp == "") { console.log("pas d'heure serveur") } else { console.log("ok H serveur") };
+
   var time_server = new Date();
 
   time_server.setSeconds(temp[3]);
   time_server.setMinutes(temp[2]);
   time_server.setHours(temp[1]);
   time_server.setMilliseconds(0);
-  if (time_server == "") { console.log("pb heure") } else { console.log("ok save heure") };
 
   //=============  VIVI OFF : X / Y  ========================
-  // var re_one = new RegExp('attaque (.{1,20}) \\((-*\\d{1,3})\\|(-*\\d{1,3})\\).{110,180} {0,1}([?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}]) Arrivée {0,1}dans (\\d{1,2}):(\\d{1,2}):(\\d{1,2}) h {0,1}à (\\d{1,2}):(\\d{1,2}):(\\d{1,2})');
-  var re_one = new RegExp('attaque (.{1,20}) \\( ?(-? ?\\d{1,3}) ?\\| ?(-? ?\\d{1,3}) ?\\)(?:[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ ]{110,180}) ((?:[\\?|\\d]{1,2} ){11})Arrivée ?dans (\\d{1,2}):(\\d{1,2}):(\\d{1,2}) h ?à (\\d{1,2}):(\\d{1,2}):(\\d{1,2})');
+  var re_one = new RegExp('attaque (.{1,20}) \\((-*\\d{1,3})\\|(-*\\d{1,3})\\).{110,180} {0,1}([?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}] {0,1}[?\\d{1,2}]) Arrivée {0,1}dans (\\d{1,2}):(\\d{1,2}):(\\d{1,2}) h {0,1}à (\\d{1,2}):(\\d{1,2}):(\\d{1,2})')
   var Attaque = ["Attaque"];
-  // console.log("aaa");
-  // console.log(re_one);
-  // var re = new RegExp('attaque .{1,20} \\(-*\\d{1,3}\\|-*\\d{1,3}\\).{110,200} Arrivée {0,1}dans \\d{1,2}:\\d{1,2}:\\d{1,2} h {0,1}à \\d{1,2}:\\d{1,2}:\\d{1,2}', 'g');
-  var re = new RegExp('attaque .{1,20} \\( ?-? ?\\d{1,3} ?\\| ?-? ?\\d{1,3} ?\\).{110,200} Arrivée {0,1}dans \\d{1,2}:\\d{1,2}:\\d{1,2} h {0,1}à \\d{1,2}:\\d{1,2}:\\d{1,2}', 'g');
+
+  var re = new RegExp('attaque (.{1,20}) \\(-*\\d{1,3}\\|-*\\d{1,3}\\).{110,200} Arrivée {0,1}dans \\d{1,2}:\\d{1,2}:\\d{1,2} h {0,1}à \\d{1,2}:\\d{1,2}:\\d{1,2}', 'g')
   var pr_attaque = pr.match(re);
-  // console.log(re);
-  // console.log(pr);
-  // console.log(pr_attaque);
-  if (pr_attaque === null) { console.log("pb regexp attaque => 0 attaque trouvée") } else { console.log("ok 3") };
-  // console.log(pr_attaque);
-  // console.log(re_one);
+
   var i = 0;
   for (i = 0; i < pr_attaque.length; i++) {
-    var temp = pr_attaque[i].match(re_one);
-    var Nom_Village = temp[1];
+    var temp = pr_attaque[i].match(re_one)
+    var Nom_Village = temp[1]
     var Voff_X = parseInt(temp[2].replace(" ", ''), 10);
     var Voff_Y = parseInt(temp[3].replace(" ", ''), 10);
     var troupes = temp[4];
@@ -73,33 +64,25 @@ function Parse_PR(pr) {
     var time_impact_min = temp[9];
     var time_impact_sec = temp[10];
 
-    // console.log("nom avant clean : " + Nom_Village);
-    Nom_Village = clean_nom_de_village(Nom_Village);
-    // console.log("nom APRES clean : " + Nom_Village);
-
-    // console.log("TEMP : " + temp)
     var time_impact = new Date(time_server.getTime() + 3600 * 1000 * temp[5] + 60 * 1000 * temp[6] + 1000 * temp[7]);
     time_impact.setMilliseconds(0);
-    // console.log(Nom_Village)
-    var re2 = new RegExp('\\( ?-? ?\\d{1,3} ?\\| ?-? ?\\d{1,3} ?\\) ' + Nom_Village + ' \\( ?(-? ?\\d{1,3}) ?\\| ?(-? ?\\d{1,3}) ?\\)')
+
+    var re2 = new RegExp('\\(-*\\d{1,3}\\|-*\\d{1,3}\\) {1,10}' + Nom_Village + ' {1,10}\\((-*\\d{1,3})\\|(-*\\d{1,3})\\)')
     var tempre = pr.match(re2);
-    // console.log("re2 : " + re2);
-    // console.log("pr : " + pr);
-    // console.log("tempre : " + tempre)
 
     if (tempre == null) {
 
       var re3 = new RegExp('(Villages)|(VILLAGES): \\d{1,2}\\/\\d{1,2}.' + Nom_Village + ' {1,10}\\((-*\\d{1,3})\\|(-*\\d{1,3})\\)');
-      // console.log("re3 : " + re3);
-      // console.log(pr);
+      console.log(re3);
+      console.log(pr);
       var tempre = pr.match(re3);
     }
     // console.log(tempre)
     // console.log(tempre[1])
     // console.log(tempre[2])
-    // console.log(tempre);
-    var Vdef_X = parseInt(tempre[1 + 0].replace(" ", ''), 10);
-    var Vdef_Y = parseInt(tempre[2 + 0].replace(" ", ''), 10);
+    console.log(tempre);
+    var Vdef_X = parseInt(tempre[1+2].replace(" ", ''), 10);
+    var Vdef_Y = parseInt(tempre[2+2].replace(" ", ''), 10);
 
     var attaque = {
       Vdef_X: Vdef_X,
@@ -185,26 +168,6 @@ function change_format_attaque(format_1) {
     }
   }
 
-  // console.log(format_2);
+  console.log(format_2);
   return (format_2);
-}
-
-
-function clean_nom_de_village(nom) {
-  // console.log(nom)
-  let nom_clean = "";
-  for (let i = 0; i < nom.length; i++) {
-
-    var re23 = new RegExp('[\\[\\]\\(\\)\\?\\|\\{\\}\\^\\@\\#\\~\\&\\"\\*\\$\\+]')
-    var tempre3 = nom[i].match(re23);
-    // console.log("regexp : " + tempre3)
-    if (tempre3 != null) {
-      nom_clean += "\\" + nom[i];
-    } else {
-      nom_clean += nom[i];
-    }
-    // console.log(nom_clean)
-  }
-  // console.log(nom_clean)
-  return (nom_clean)
 }
