@@ -26,8 +26,8 @@ async function dl_map_SQL() {
     // console.log(array)
     // console.log("AAAZ");
 
-    // let DATA_FROM_TG = await getData_new_SQL();
-    let DATA_FROM_TG = DATA_TEST_TG;
+    let DATA_FROM_TG = await getData_new_SQL();
+    // let DATA_FROM_TG = DATA_TEST_TG;
 
     DATA_FROM_TG = ");" + DATA_FROM_TG.replace(/\r|\n/g, '').replace(/\); INSERT INTO `x_world` VALUES \(/g, '\);INSERT INTO `x_world` VALUES \(');
     // DATA_FROM_TG = DATA_FROM_TG;
@@ -83,8 +83,8 @@ async function dl_map_SQL() {
             // console.log(element_attaque);
             // console.log(element);
             let url_api;
-            //   url_api ="https://test-trav.herokuapp.com/test/sql/s2";
-            url_api = "http://localhost:3000/test/sql/s2";
+              url_api ="https://test-trav.herokuapp.com/test/sql/s2";
+            // url_api = "http://localhost:3000/test/sql/s2";
 
             postData_SQL(url_api, element_attaque)
                 .then(data => {
@@ -110,7 +110,8 @@ async function dl_map_SQL() {
                 Pop: [{p : element[10], d : test_date}]
             };
 
-            url_api = "http://localhost:3000/test/sql/s2";
+            // url_api = "http://localhost:3000/test/sql/s2";
+            url_api ="https://test-trav.herokuapp.com/test/sql/s2";
 
             updateDATA_SQL(url_api, element_attaque)
                 .then(data => {
@@ -125,9 +126,9 @@ async function getData_new_SQL() {
     let url_SQL;
     // url_SQL = "https://ts2.travian.fr/map.sql";
     // url_SQL = "https://test-trav.herokuapp.com/test/sql";
-    // url_SQL = "https://test-trav.herokuapp.com/api/stuff";
+    url_SQL = "https://test-trav.herokuapp.com/sql/travian/s2";
     // url_SQL = "https://test-trav.herokuapp.com/test/sql";
-    url_SQL = "http://localhost:3000/sql/travian/s2";
+    // url_SQL = "http://localhost:3000/sql/travian/s2";
 
     const response = await fetch(url_SQL, {
         method: 'GET',
@@ -150,9 +151,9 @@ async function getData_old_SQL() {
     let url_SQL;
     // url_SQL = "https://ts2.travian.fr/map.sql";
     // url_SQL = "https://test-trav.herokuapp.com/test/sql";
-    // url_SQL = "https://test-trav.herokuapp.com/api/stuff";
+    url_SQL = "https://test-trav.herokuapp.com/sql/mongo/s2";
     // url_SQL = "https://test-trav.herokuapp.com/test/sql";
-    url_SQL = "http://localhost:3000/sql/mongo/s2";
+    // url_SQL = "http://localhost:3000/sql/mongo/s2";
 
     const response = await fetch(url_SQL, {
         method: 'GET',
