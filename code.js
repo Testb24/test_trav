@@ -37,7 +37,8 @@ function envoie(field) {
   // console.log(field1_content2)
   // console.log(result_from_parse);
   let data = change_format_attaque(Parse_PR(attack_field.value));
-
+//{Vdef_X: -83, Vdef_Y: 121, Voff_X: -80, Voff_Y: 124,
+//time_server: Mon Apr 12 2021 16:27:02 GMT+0200 (heure d’été d’Europe centrale), …}
   // console.log(data[0]);
   data.forEach(element => {
     let attaque = element;

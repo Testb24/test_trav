@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Decla</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="stylesheet" href="map_index.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+</head>
+
+<body>
+	<h1 class="title">Admin</h1>
+
+	<div>
+		<a href="./index.html"><button>Recensement</button></a>
+		<a href="./page_liste.html"><button>Liste attaque</button></a>
+	</div>
+
+	<fieldset>
+		<legend>Afficher</legend>
+
+		<label>
+			<p>Alliance</p>
+
+			<select>
+				<option>1</option>
+				<input type="checkbox">
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+			</select>
+		</label>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Trier par</legend>
+		<select>
+			<optgroup label="A">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</optgroup>
+			<optgroup label="B">
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+			</optgroup>
+		</select>
+	</fieldset>
+
+	<div>
+		<button id="charge_btn">Charge</button>
+		<button disabled></button>
+
+		<label id="checkbox">
+			<p>Type d'attaque</p>
+			<input type="checkbox" id="location1" value="1" />
+			<label for="location1">
+				1</label>
+			<input type="checkbox" id="location2" value="2" />
+			<label for="location2">
+				2</label>
+			<input type="checkbox" id="location3" value="3" />
+			<label for="location3">
+				3</label>
+			<input type="checkbox" id="location4" value="4" />
+			<label for="location4">
+				4</label>
+			<input type="checkbox" id="location5" value="5" />
+			<label for="location5">
+				> 4</label>
+		</label>
+	</div>
+
+	<div id="table_add"></div>
+
+	<main>
+		<section class="note-display">
+			<h2>Notes</h2>
+			<ul>
+
+			</ul>
+		</section>
+		<section class="new-note">
+			<h2>Enter a new note</h2>
+			<form>
+				<div>
+					<label for="title">Note title</label>
+					<input id="title" type="text" required>
+				</div>
+				<div>
+					<label for="body">Note text</label>
+					<input id="body" type="text" required>
+				</div>
+				<div>
+					<button>Create new note</button>
+				</div>
+			</form>
+		</section>
+	</main>
+
+
+</body>
+
+<script src="global_fetch.js"></script>
+
+<script src="code_admin.js"></script>
+
+<!-- <script src="DB_loca_2.js"></script> -->
+
+</html>
