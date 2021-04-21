@@ -27,8 +27,8 @@ INSERT INTO \`x_world\` VALUES (3586,177,192,3,19483,'V 01',3016,'hayot',171,'',
 INSERT INTO \`x_world\` VALUES (4042,-169,190,3,20362,'2',761,'Neywok',0,'',11,null);
 INSERT INTO \`x_world\` VALUES (4045,-166,190,3,19236,'1',761,'Neywok',0,'',180,null);`
 
-const url = "http://localhost:3000";
-// const url = "https://test-trav.herokuapp.com";
+// const url = "http://localhost:3000";
+const url = "https://test-trav.herokuapp.com";
 
 
 
@@ -45,12 +45,17 @@ async function dl_map_SQL(option) {
         array_village.push(element._id);
     });
 
+    // console.log(array_village);
+
+    // let test_array = olddata_village.map(element => element._id)
+    // console.log(test_array)
+
     testYY = await clean_sql_de_travian();
 
     let d = new Date();
     let test_date = d.getDate() + "/" + (d.getMonth() + 1);
     // test_date = "13/4";
-    // console.log(test_date);
+    console.log(test_date);
     let array_new_player_id = [];
     let array_new_player = [];
 
@@ -242,7 +247,7 @@ async function dl_map_SQL(option) {
         array_new_ally.forEach(element => {
 
             postData_SQL(url_api, element);
-            
+
             updateDATA_SQL(url_api, element);
         });
     }
