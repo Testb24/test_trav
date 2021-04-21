@@ -227,8 +227,8 @@ async function dl_map_SQL(option) {
 
     if (option == 2 || option == 4) {
 
-        console.log(array_new_player_id);
-        console.log(array_new_player);
+        // console.log(array_new_player_id);
+        // console.log(array_new_player);
 
         // url_api = "http://localhost:3000/sql/data/player/s2";
         let url_api;
@@ -244,7 +244,7 @@ async function dl_map_SQL(option) {
 
     if (option == 3 || option == 4) {
 
-        console.log(array_new_ally_id);
+        // console.log(array_new_ally_id);
         console.log(array_new_ally);
 
         let url_api;
