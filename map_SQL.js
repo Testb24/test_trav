@@ -29,7 +29,7 @@ INSERT INTO \`x_world\` VALUES (4045,-166,190,3,19236,'1',761,'Neywok',0,'',180,
 
 // const url = "http://localhost:3000";
 const url = "https://test-trav.herokuapp.com";
-//OK
+//OK 2
 
 
 async function dl_map_SQL(option) {
@@ -136,7 +136,7 @@ async function dl_map_SQL(option) {
 
 
                     // console.log(element_vivi);
-
+                    let url_api;
                     url_api = url + "/sql/data/town/s2";
 
                     updateDATA_SQL(url_api, element_vivi)
@@ -231,8 +231,8 @@ async function dl_map_SQL(option) {
         console.log(array_new_player);
 
         // url_api = "http://localhost:3000/sql/data/player/s2";
-
-        url_SQL = url + "/sql/data/player/s2";
+        let url_api;
+        url_api = url + "/sql/data/player/s2";
 
         array_new_player.forEach(element => {
 
@@ -247,8 +247,9 @@ async function dl_map_SQL(option) {
         console.log(array_new_ally_id);
         console.log(array_new_ally);
 
+        let url_api;
         // url_api = "http://localhost:3000/sql/data/ally/s2";
-        url_SQL = url + "/sql/data/ally/s2";
+        url_api = url + "/sql/data/ally/s2";
 
         array_new_ally.forEach(element => {
 
