@@ -12,6 +12,30 @@ btn_4.addEventListener("click", function () { dl_map_SQL(4) });
 
 btn_find.addEventListener("click", find_SQL);
 
+const name_place = document.getElementById("name_place");
+    console.log(localStorage.getItem('name'))
+    if (localStorage.getItem('name') == "undefined") {
+        name_place.innerText = "Non connecté"
+    } else {
+        name_place.innerText = localStorage.getItem('name')
+    }
+
+const test_name = document.getElementById('test_name');
+test_name.addEventListener('click', test_name_function)
+
+function test_name_function() {
+    const name_place = document.getElementById("name_place");
+    console.log(localStorage.getItem('name'))
+    if (localStorage.getItem('name') == "undefined") {
+        name_place.innerText = "Non connecté"
+    } else {
+        name_place.innerText = localStorage.getItem('name')
+    }
+    name_place.style.visibility = "visible"
+}
+
+
+
 const server = "s2";
 
 const DATA_TEST_TG =
