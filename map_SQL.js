@@ -13,12 +13,12 @@ btn_4.addEventListener("click", function () { dl_map_SQL(4) });
 btn_find.addEventListener("click", find_SQL);
 
 const name_place = document.getElementById("name_place");
-    console.log(localStorage.getItem('name'))
-    if (localStorage.getItem('name') == "undefined") {
-        name_place.innerText = "Non connecté"
-    } else {
-        name_place.innerText = localStorage.getItem('name')
-    }
+console.log(localStorage.getItem('name'))
+if (localStorage.getItem('name') == "undefined") {
+    name_place.innerText = "Non connecté"
+} else {
+    name_place.innerText = localStorage.getItem('name')
+}
 
 const test_name = document.getElementById('test_name');
 test_name.addEventListener('click', test_name_function)
@@ -61,8 +61,6 @@ async function dl_map_SQL(option) {
 
     //Récupère les _id & pop déjà enregistrés de chaque village :
     let olddata_village = await getData_old_SQL("town", server);
-
-    // console.log(olddata_village)
 
     let array_village = [];
     olddata_village.forEach(element => {
@@ -127,7 +125,6 @@ async function dl_map_SQL(option) {
                 // url_api = "https://test-trav.herokuapp.com//sql/data/town/s2";
                 // url_api = "http://localhost:3000/sql/data/town/s2";
 
-
                 url_api = url + "/sql/data/town/s2";
 
                 postData_SQL(url_api, element_vivi)
@@ -158,7 +155,6 @@ async function dl_map_SQL(option) {
                         Day: ccc.Day
                     };
 
-
                     // console.log(element_vivi);
                     let url_api;
                     url_api = url + "/sql/data/town/s2";
@@ -168,8 +164,6 @@ async function dl_map_SQL(option) {
                 } else {
                     // console.log("pas maj")
                 }
-
-
             }
         };
 
@@ -296,6 +290,9 @@ async function getData_new_SQL() {
 
     url_SQL = url + "/sql/travian/s2";
 
+    console.log("ICI ICI ICI =======");
+    console.log(url_SQL);
+
     const response = await fetch(url_SQL, {
         method: 'GET',
         mode: 'cors',
@@ -316,7 +313,7 @@ async function getData_new_SQL() {
 async function getData_old_SQL(type, server) {
     let url_SQL;
     url_SQL = url + "/sql/data/" + type + "/" + server;
-    // console.log(url_SQL);
+    console.log(url_SQL);
 
     // url_SQL = url + "/sql/data/player/s2";
 
